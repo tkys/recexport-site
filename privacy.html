@@ -13,14 +13,14 @@
 </head>
 <body>
   <h1>RecExport Privacy Policy</h1>
-  <p class="updated">Last updated: March 28, 2026</p>
+  <p class="updated">Last updated: September 3, 2026</p>
 
   <h2>Overview</h2>
   <p>RecExport ("the App") is an audio recording application developed by tkysyskwdev. We are committed to protecting your privacy. This policy explains what data the App collects and how it is used.</p>
 
   <h2>Data We Collect</h2>
   <p><strong>Audio Recordings:</strong> The App records audio using your device's microphone. Recordings are stored locally on your device and are only uploaded to cloud services that you explicitly configure and authorize.</p>
-  <p><strong>Cloud Service Credentials:</strong> When you connect a cloud service (Google Drive, OneDrive, Dropbox, S3, or Webhook), authentication tokens are stored securely in the iOS Keychain on your device. We do not have access to these credentials.</p>
+  <p><strong>Cloud Service Credentials:</strong> When you connect a destination (Google Drive, OneDrive, Dropbox, S3-compatible storage, WebDAV, or a notification endpoint), the authentication tokens or secrets are stored securely in the iOS Keychain on your device. We do not have access to these credentials.</p>
 
   <h2>Data We Do NOT Collect</h2>
   <ul>
@@ -31,21 +31,24 @@
   </ul>
 
   <h2>Analytics</h2>
-  <p>We use <a href="https://telemetrydeck.com">TelemetryDeck</a>, a privacy-first analytics service based in the EU, to collect anonymous, aggregated usage data. This helps us understand how features are used and improve the App.</p>
+  <p>We use <a href="https://posthog.com">PostHog</a> to collect anonymous, aggregated usage data that helps us understand how features are used and improve the App's reliability. We send anonymous events only — we do not identify you, and PostHog is configured with no autocapture, no screen-view tracking, and no session replay.</p>
   <p><strong>What is collected:</strong></p>
   <ul>
-    <li>Feature usage events (e.g., which recording trigger was used, whether onboarding was completed)</li>
-    <li>Aggregated session information (e.g., recording duration ranges such as "10–30 seconds", upload success/failure counts per cloud service)</li>
-    <li>Basic device metadata (iOS version, device model — collected automatically by TelemetryDeck)</li>
+    <li>Anonymous feature-usage events (e.g., which recording trigger was used, whether onboarding was completed, or that a notification/calendar setting was toggled)</li>
+    <li>Upload reliability events per destination (success or failure, and a general failure category such as "network" or "timeout"), with recording length as anonymized ranges such as "10–60 seconds" rather than exact durations</li>
+    <li>The install date (day only) and the App version, to understand adoption and support long-time users</li>
+    <li>Approximate location at the country level, derived by PostHog from your IP address (the IP address itself is not retained by us)</li>
+    <li>Basic device metadata (iOS version, device model, App version — attached automatically)</li>
   </ul>
   <p><strong>What is NOT collected:</strong></p>
   <ul>
-    <li>No personally identifiable information (no names, emails, IP addresses, or device IDs)</li>
-    <li>No audio content or file names</li>
-    <li>No precise recording durations — only anonymized ranges</li>
-    <li>No cloud service credentials or account information</li>
+    <li>No personally identifiable information (no names, emails, or account information)</li>
+    <li>No audio content, transcripts, or file names</li>
+    <li>No exact recording durations — only anonymized ranges</li>
+    <li>No precise location</li>
+    <li>No cloud service credentials</li>
   </ul>
-  <p>TelemetryDeck does not use cookies, does not fingerprint users, and is compliant with GDPR, CCPA, and PECR without requiring a consent dialog. For details, see the <a href="https://telemetrydeck.com/privacy/">TelemetryDeck Privacy Policy</a>.</p>
+  <p>Analytics data is processed by PostHog in the United States. We send anonymous events only and do not build user profiles from this data. For details, see the <a href="https://posthog.com/privacy">PostHog Privacy Policy</a>.</p>
 
   <h2>Third-Party Cloud Services</h2>
   <p>When you choose to upload recordings, data is sent directly from your device to the cloud service you selected. Each cloud service has its own privacy policy:</p>
