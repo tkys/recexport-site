@@ -600,3 +600,9 @@ body { color: var(--color-ink-2); }
 
 .appicon--nav { inline-size: 28px; block-size: 28px; }
 .wordmark, .colophon__mark { display: inline-flex; align-items: center; gap: var(--space-xs); }
+
+/* Where section: heading kept in phrase-sized pieces, a one-line promise, then cumulative figures */
+.where h2 span { display: inline-block; }
+.where h2:has(+ .where__lead) { margin-bottom: var(--space-sm); }
+.where__lead { margin: 0 0 var(--space-2xl); font: 400 var(--text-lg)/1.5 var(--font-body); color: var(--color-ink-2, var(--color-ink)); max-width: 40ch; }
+:lang(ko) .where h2 span:first-child, :lang(de) .where h2 span:first-child, :lang(pt) .where h2 span:first-child { margin-right: 0.25em; }
