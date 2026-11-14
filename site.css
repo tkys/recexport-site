@@ -606,3 +606,18 @@ body { color: var(--color-ink-2); }
 .where h2:has(+ .where__lead) { margin-bottom: var(--space-sm); }
 .where__lead { margin: 0 0 var(--space-2xl); font: 400 var(--text-lg)/1.5 var(--font-body); color: var(--color-ink-2, var(--color-ink)); max-width: 40ch; }
 :lang(ko) .where h2 span:first-child, :lang(de) .where h2 span:first-child, :lang(pt) .where h2 span:first-child { margin-right: 0.25em; }
+
+/* Uses: three real usage patterns, each led by the path the recording takes */
+.uses { padding-block: var(--section-gap-s) var(--section-gap); border-top: var(--rule-hair) solid var(--color-rule); }
+.uses h2 { margin-bottom: var(--space-2xl); }
+.uses__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-bar) solid var(--color-rule-2); }
+.uses__list > li { display: grid; align-content: start; gap: var(--space-xs); padding: var(--space-lg) var(--space-lg) 0; border-left: var(--rule-hair) solid var(--color-rule); }
+.uses__list > li:first-child { padding-left: 0; border-left: 0; }
+.uses__path { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2em 0.6em; margin: 0 0 var(--space-xs); font: 500 var(--text-sm)/1.4 var(--font-outlier); color: var(--color-accent, var(--color-ink)); }
+.uses h3 { margin: 0; font: 600 var(--text-title)/1.25 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-wrap: balance; }
+.uses__list p:last-child { margin: 0; color: var(--color-ink-2); max-width: 32ch; }
+@media (max-width: 60rem) {
+  .uses__list { grid-template-columns: minmax(0, 1fr); }
+  .uses__list > li { padding: var(--space-md) 0; border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+  .uses__list > li:first-child { border-top: 0; }
+}
