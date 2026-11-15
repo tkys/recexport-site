@@ -621,3 +621,24 @@ body { color: var(--color-ink-2); }
   .uses__list > li { padding: var(--space-md) 0; border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); }
   .uses__list > li:first-child { border-top: 0; }
 }
+
+/* Hero deck, brand-neutral: every destination is drawn as the same plain folder window, told apart by its
+ * name in the path. No third-party logos or imitated product UI (trademark rules of Google, Dropbox,
+ * Microsoft and Apple). */
+.app--plain { --app-bg: var(--prod-1); --app-ink: var(--prod-2); --app-muted: var(--prod-3); --app-line: var(--prod-4);
+  --ico-bg: var(--prod-5); --ico-fg: var(--prod-3); --app-new: var(--prod-new); border-radius: 12px; }
+.app--plain .app__bar { gap: var(--space-xs); min-height: 48px; border-bottom: 1px solid var(--app-line); background: var(--prod-10); }
+.app__folder { flex: none; inline-size: 20px; block-size: 16px; fill: var(--prod-3); }
+.app--plain .app__crumb { margin: 0; font-size: var(--text-md); color: var(--app-muted); }
+.app--plain .app__crumb b { color: var(--app-ink); font-weight: 600; }
+.app--plain .app__main { padding: var(--space-xs) var(--space-md) var(--space-xs); }
+.colophon .colophon__tm { grid-column: 1 / -1; margin: 0; font-size: var(--text-xs); line-height: 1.5; color: var(--color-muted); max-width: 90ch; }
+
+/* Apple: one App Store badge per layout. Wide screens show the hero and closing badges (never on screen together);
+ * narrow screens show only the sticky nav badge
+ * (otherwise it would sit next to a second badge, or far below the first view). */
+.nav .badge--small { display: none; }
+@media (max-width: 60rem) {
+  .nav .badge--small { display: inline-flex; }
+  .hero__actions .badge, .close .badge { display: none; }
+}

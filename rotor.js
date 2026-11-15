@@ -2,7 +2,7 @@
 // next one comes forward. Advances slowly on its own, stops for good once the visitor picks a
 // tab, pauses on hover and focus. Under reduced motion it still advances, but CSS swaps the
 // cards without any transition.
-// The headline word and its logo follow the front card. On narrow screens the tab buttons are
+// The headline word follows the front card. On narrow screens the tab buttons are
 // hidden by CSS and only Pause stays.
 (() => {
   const group = document.querySelector('.sheet__tabs');
@@ -12,8 +12,6 @@
   const pauseBtn = group.querySelector('[data-pause]');
   const rotor = document.querySelector('[data-rotor]');
   const rotorText = rotor ? rotor.querySelector('[data-rotor-text]') || rotor : null;
-  const rotorLogo = rotor ? rotor.querySelector('.rotor__logo') : null;
-  tabs.forEach((t) => { if (t.dataset.logo) new Image().src = t.dataset.logo; });
   const area = group.closest('.hero__visual') || group;
   let front = 0, timer = null, stopped = false, hovering = false;
 
@@ -26,7 +24,6 @@
     });
     tabs.forEach((t, k) => t.setAttribute('aria-pressed', String(k === front)));
     if (rotorText) rotorText.textContent = tabs[front].dataset.dest;
-    if (rotorLogo && tabs[front].dataset.logo) rotorLogo.src = tabs[front].dataset.logo;
   };
   const tick = () => { if (!stopped && !hovering) show(front + 1); };
   const start = () => { if (!stopped && !timer) timer = setInterval(tick, 3500); };
