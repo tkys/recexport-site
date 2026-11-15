@@ -622,14 +622,20 @@ body { color: var(--color-ink-2); }
   .uses__list > li:first-child { border-top: 0; }
 }
 
-/* Hero deck, brand-neutral: every destination is drawn as the same plain folder window, told apart by its
- * name in the path. No third-party logos or imitated product UI (trademark rules of Google, Dropbox,
- * Microsoft and Apple). */
+/* Hero deck, brand-neutral: each destination is a plain browser window. What tells them apart is text only:
+ * the address in the bar and the service name set large, with that service's own folder path. No third-party
+ * logos or imitated product UI (trademark rules of Google, Dropbox, Microsoft and Apple). */
 .app--plain { --app-bg: var(--prod-1); --app-ink: var(--prod-2); --app-muted: var(--prod-3); --app-line: var(--prod-4);
-  --ico-bg: var(--prod-5); --ico-fg: var(--prod-3); --app-new: var(--prod-new); border-radius: 12px; }
-.app--plain .app__bar { gap: var(--space-xs); min-height: 48px; border-bottom: 1px solid var(--app-line); background: var(--prod-10); }
-.app__folder { flex: none; inline-size: 20px; block-size: 16px; fill: var(--prod-3); }
-.app--plain .app__crumb { margin: 0; font-size: var(--text-md); color: var(--app-muted); }
+  --ico-bg: var(--prod-5); --ico-fg: var(--prod-3); --app-new: var(--prod-new); border-radius: 12px; grid-template-rows: auto auto 1fr auto; }
+.app--plain .app__bar { gap: var(--space-sm); min-height: 40px; padding-block: var(--space-2xs); background: var(--prod-10); border-bottom: 1px solid var(--app-line); }
+.app__dots { display: flex; gap: 6px; flex: none; }
+.app__dots i { inline-size: 10px; block-size: 10px; border-radius: 50%; background: var(--prod-13); }
+.app__url { flex: 1; min-width: 0; padding: 0 var(--space-sm); line-height: 26px; border-radius: 999px; background: var(--prod-1);
+  border: 1px solid var(--app-line); font: 500 var(--text-xs)/26px var(--font-outlier); color: var(--app-muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app__head { padding: var(--space-sm) var(--space-md) 0; }
+.app__name { margin: 0; font: 600 var(--text-xl)/1.15 var(--font-display); letter-spacing: var(--tracking-display); color: var(--app-ink); }
+.app--plain .app__crumb { margin: var(--space-2xs) 0 0; font-size: var(--text-xs); color: var(--app-muted); }
 .app--plain .app__crumb b { color: var(--app-ink); font-weight: 600; }
 .app--plain .app__main { padding: var(--space-xs) var(--space-md) var(--space-xs); }
 .colophon .colophon__tm { grid-column: 1 / -1; margin: 0; font-size: var(--text-xs); line-height: 1.5; color: var(--color-muted); max-width: 90ch; }
