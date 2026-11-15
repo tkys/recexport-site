@@ -478,6 +478,8 @@ body { color: var(--color-ink-2); }
   --prod-35: #28c840;
   --prod-36: rgb(0 0 0 / 0.08);
   --prod-37: #f4f5f5;
+  --prod-dest-gd: #137333; --prod-dest-gd-1: #0f9d58; --prod-dest-gd-2: #f4b400; --prod-dest-gd-3: #4285f4;
+  --prod-dest-db: #0061fe; --prod-dest-od: #0364b8; --prod-dest-od-2: #1490df; --prod-dest-nas: #2b2f36;
 }
 /* ---------- Hero deck cards: each destination drawn in its own app's shape ----------
  * Redrawn by hand from the owner's screenshots, not the screenshots themselves.
@@ -622,22 +624,33 @@ body { color: var(--color-ink-2); }
   .uses__list > li:first-child { border-top: 0; }
 }
 
-/* Hero deck, brand-neutral: each destination is a plain browser window. What tells them apart is text only:
- * the address in the bar and the service name set large, with that service's own folder path. No third-party
- * logos or imitated product UI (trademark rules of Google, Dropbox, Microsoft and Apple). */
+/* Hero deck: one card per destination. No third-party logos and no imitated product UI (trademark rules of
+ * Google, Dropbox, Microsoft and Apple); each card is told apart by its service name, set large on a band in a
+ * colour people connect with that service, plus its real web address and folder path. The back cards keep
+ * their colour band visible, so the stack itself reads as "four places". */
 .app--plain { --app-bg: var(--prod-1); --app-ink: var(--prod-2); --app-muted: var(--prod-3); --app-line: var(--prod-4);
-  --ico-bg: var(--prod-5); --ico-fg: var(--prod-3); --app-new: var(--prod-new); border-radius: 12px; grid-template-rows: auto auto 1fr auto; }
-.app--plain .app__bar { gap: var(--space-sm); min-height: 40px; padding-block: var(--space-2xs); background: var(--prod-10); border-bottom: 1px solid var(--app-line); }
-.app__dots { display: flex; gap: 6px; flex: none; }
-.app__dots i { inline-size: 10px; block-size: 10px; border-radius: 50%; background: var(--prod-13); }
-.app__url { flex: 1; min-width: 0; padding: 0 var(--space-sm); line-height: 26px; border-radius: 999px; background: var(--prod-1);
-  border: 1px solid var(--app-line); font: 500 var(--text-xs)/26px var(--font-outlier); color: var(--app-muted);
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.app__head { padding: var(--space-sm) var(--space-md) 0; }
-.app__name { margin: 0; font: 600 var(--text-xl)/1.15 var(--font-display); letter-spacing: var(--tracking-display); color: var(--app-ink); }
-.app--plain .app__crumb { margin: var(--space-2xs) 0 0; font-size: var(--text-xs); color: var(--app-muted); }
-.app--plain .app__crumb b { color: var(--app-ink); font-weight: 600; }
-.app--plain .app__main { padding: var(--space-xs) var(--space-md) var(--space-xs); }
+  --ico-bg: var(--prod-5); --ico-fg: var(--prod-3); --app-new: var(--prod-new);
+  --band: var(--prod-dest-nas); --band-ink: var(--prod-1); --band-stripe: none;
+  border: 0; border-radius: 14px; grid-template-rows: auto 1fr auto; }
+.dest--gd { --band: var(--prod-dest-gd); --band-stripe: linear-gradient(90deg, var(--prod-dest-gd-1) 0 33.3%, var(--prod-dest-gd-2) 0 66.6%, var(--prod-dest-gd-3) 0); }
+.dest--db { --band: var(--prod-dest-db); }
+.dest--od { --band: linear-gradient(120deg, var(--prod-dest-od) 0%, var(--prod-dest-od-2) 100%); }
+.app__band { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--space-md);
+  padding: var(--space-md) var(--space-md) calc(var(--space-sm) + 4px); background: var(--band); color: var(--band-ink); }
+.app__band::after { content: ""; position: absolute; inset: auto 0 0 0; block-size: 4px; background: var(--band-stripe); }
+.app__name { grid-column: 1; margin: 0; font: 700 var(--text-2xl)/1.05 var(--font-display); letter-spacing: -0.01em; color: inherit; }
+.app--plain .app__crumb { grid-column: 1; display: flex; flex-wrap: wrap; gap: 0 var(--space-xs); margin: var(--space-2xs) 0 0;
+  font: 500 var(--text-xs)/1.4 var(--font-display); color: inherit; opacity: 0.82; }
+.app--plain .app__crumb b { font-weight: 700; color: inherit; }
+.app__url { grid-column: 2; grid-row: 1 / span 2; align-self: start; padding: 2px var(--space-xs); border-radius: 999px;
+  background: rgb(255 255 255 / 0.16); font: 500 var(--text-xs)/1.5 var(--font-outlier); color: inherit; white-space: nowrap; }
+.app--plain .app__main { padding: var(--space-2xs) var(--space-md) var(--space-xs); }
+.deck__card:not([data-pos="0"]) > .app__band { visibility: visible; }
+.deck__card:not([data-pos="0"]) > .app__band > * { visibility: hidden; }
+@media (max-width: 40rem) {
+  .app__name { font-size: var(--text-xl); }
+  .app__url { display: none; }
+}
 .colophon .colophon__tm { grid-column: 1 / -1; margin: 0; font-size: var(--text-xs); line-height: 1.5; color: var(--color-muted); max-width: 90ch; }
 
 /* Apple: one App Store badge per layout. Wide screens show the hero and closing badges (never on screen together);
