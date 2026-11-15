@@ -478,7 +478,7 @@ body { color: var(--color-ink-2); }
   --prod-35: #28c840;
   --prod-36: rgb(0 0 0 / 0.08);
   --prod-37: #f4f5f5;
-  --prod-dest-gd: #137333; --prod-dest-gd-1: #0f9d58; --prod-dest-gd-2: #f4b400; --prod-dest-gd-3: #4285f4;
+  --prod-dest-g-blue: #4285f4; --prod-dest-g-red: #ea4335; --prod-dest-g-yellow: #fbbc05; --prod-dest-g-green: #34a853;
   --prod-dest-db: #0061fe; --prod-dest-od: #0364b8; --prod-dest-od-2: #1490df; --prod-dest-nas: #2b2f36;
 }
 /* ---------- Hero deck cards: each destination drawn in its own app's shape ----------
@@ -632,7 +632,10 @@ body { color: var(--color-ink-2); }
   --ico-bg: var(--prod-5); --ico-fg: var(--prod-3); --app-new: var(--prod-new);
   --band: var(--prod-dest-nas); --band-ink: var(--prod-1); --band-stripe: none;
   border: 0; border-radius: 14px; grid-template-rows: auto 1fr auto; }
-.dest--gd { --band: var(--prod-dest-gd); --band-stripe: linear-gradient(90deg, var(--prod-dest-gd-1) 0 33.3%, var(--prod-dest-gd-2) 0 66.6%, var(--prod-dest-gd-3) 0); }
+.dest--gd { --band: var(--prod-1); --band-ink: var(--prod-2);
+  --band-stripe: linear-gradient(90deg, var(--prod-dest-g-blue) 0 25%, var(--prod-dest-g-red) 0 50%, var(--prod-dest-g-yellow) 0 75%, var(--prod-dest-g-green) 0); }
+.dest--gd .app__band { border-bottom: 1px solid var(--prod-4); }
+.dest--gd .app__url { background: var(--prod-5); color: var(--prod-3); }
 .dest--db { --band: var(--prod-dest-db); }
 .dest--od { --band: linear-gradient(120deg, var(--prod-dest-od) 0%, var(--prod-dest-od-2) 100%); }
 .app__band { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--space-md);
