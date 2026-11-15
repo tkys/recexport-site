@@ -38,7 +38,7 @@
   <link rel="alternate" hreflang="x-default" href="">
   <link rel="icon" href="img/app-icon.png">
   <link rel="apple-touch-icon" href="img/app-icon.png">
-  <link rel="stylesheet" href="site.css?v=20261115b">
+  <link rel="stylesheet" href="site.css?v=20261115c">
 </head>
 <body>
   <div class="nav-wrap">
@@ -301,7 +301,7 @@
     </div>
   </footer>
 
-  <script src="rotor.js?v=20261115" defer></script>
+  <script src="rotor.js?v=20261115c" defer></script>
   <script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
 document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
 </body>

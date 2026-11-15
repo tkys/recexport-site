@@ -100,7 +100,6 @@ body { color: var(--color-ink-2); }
   color: var(--color-ink);
 }
 .hero__actions { display: grid; gap: var(--space-sm); justify-items: start; padding-top: var(--space-xs); }
-.rotor__logo { display: inline-block; height: 0.78em; width: auto; vertical-align: -0.05em; margin-right: 0.18em; }
 .hero__terms { font: 400 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
 
 /* ---------- The sheet: a Drive folder ---------- */
@@ -664,3 +663,20 @@ body { color: var(--color-ink-2); }
   .nav .badge--small { display: inline-flex; }
   .hero__actions .badge, .close .badge { display: none; }
 }
+
+/* Headline destination word: an underline in the same colour as the front card ties the word to the deck.
+ * With motion it fills left to right as the timer for the next switch (rotor.js advances on animationend);
+ * under reduced motion it is simply drawn full, so the colour change alone shows the switch. */
+.rotor { --rotor-line: var(--prod-dest-nas); }
+.rotor[data-dest="gd"] { --rotor-line: linear-gradient(90deg, var(--prod-dest-g-blue) 0 25%, var(--prod-dest-g-red) 0 50%, var(--prod-dest-g-yellow) 0 75%, var(--prod-dest-g-green) 0); }
+.rotor[data-dest="db"] { --rotor-line: var(--prod-dest-db); }
+.rotor[data-dest="od"] { --rotor-line: linear-gradient(90deg, var(--prod-dest-od), var(--prod-dest-od-2)); }
+.rotor [data-rotor-text] { position: relative; }
+.rotor [data-rotor-text]::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -0.02em; block-size: 0.09em; border-radius: 0.05em;
+  background: var(--rotor-line); transform-origin: left center;
+}
+.rotor.is-timing [data-rotor-text]::after { animation: rotor-fill var(--rotor-step, 3500ms) linear both; }
+.rotor.is-paused [data-rotor-text]::after, .rotor.is-held [data-rotor-text]::after { animation-play-state: paused; }
+@keyframes rotor-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .rotor [data-rotor-text]::after { animation: none; transform: none; } }
