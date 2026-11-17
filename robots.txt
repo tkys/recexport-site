@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tkys.github.io/recexport-site/sitemap.xml
