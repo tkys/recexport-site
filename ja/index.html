@@ -29,7 +29,7 @@
         <a class="nav__text" href="#how">使い方</a>
         <a class="nav__text" href="#questions">よくある質問</a>
         <a class="nav__text" href="#languages">言語</a>
-        <a class="badge badge--small" href="https://apps.apple.com/jp/app/id6761234228"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp" alt="App Store からダウンロード" height="40" width="120"></a>
+        <a data-pos="nav" class="badge badge--small" href="https://apps.apple.com/jp/app/apple-store/id6761234228?pt=128010919&amp;ct=lp-ja&amp;mt=8"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp" alt="App Store からダウンロード" height="40" width="120"></a>
       </div>
     </nav>
   </div>
@@ -42,7 +42,7 @@
           <h1 id="hero-title"><span>録音を止めたら、</span><span>もう <span class="rotor" data-rotor><span data-rotor-text>Drive</span></span> に</span><span>入っている。</span></h1>
           <p class="lead">会議を録る iPhone アプリ。録音は自分のクラウドへ自動で届きます。</p>
           <div class="hero__actions">
-            <a class="badge" href="https://apps.apple.com/jp/app/id6761234228"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp" alt="App Store からダウンロード" height="54" width="162"></a>
+            <a data-pos="hero" class="badge" href="https://apps.apple.com/jp/app/apple-store/id6761234228?pt=128010919&amp;ct=lp-ja&amp;mt=8"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp" alt="App Store からダウンロード" height="54" width="162"></a>
             <p class="hero__terms">無料でダウンロードできます。iOS 17 以降の iPhone に対応。</p>
           </div>
         </div>
@@ -260,7 +260,7 @@
       <div class="container close__grid">
         <div class="close__text">
           <h2 id="close-title">次の会議から、録ってみる。</h2>
-          <a class="badge" href="https://apps.apple.com/jp/app/id6761234228"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp" alt="App Store からダウンロード" height="54" width="162"></a>
+          <a data-pos="close" class="badge" href="https://apps.apple.com/jp/app/apple-store/id6761234228?pt=128010919&amp;ct=lp-ja&amp;mt=8"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp" alt="App Store からダウンロード" height="54" width="162"></a>
         </div>
         <div class="phone phone--close" data-slot="standby" data-kind="product" data-alt="録音ボタンと Google ドライブの保存先が見える RecExport の待機画面"><img src="../img/standby-ja.png" alt="録音ボタンと Google ドライブの保存先が見える RecExport の待機画面" width="603" height="1311"></div>
       </div>
@@ -281,5 +281,15 @@
   <script src="../rotor.js?v=20261115c" defer></script>
   <script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
 document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
+<script>
+/* Web analytics: published site only, no cookies, nothing stored (memory persistence). ?internal=1 excludes this browser. */
+var rxInternal=false;try{var q=new URLSearchParams(location.search).get("internal");if(q==="1")localStorage.setItem("recexport_internal","1");if(q==="0")localStorage.removeItem("recexport_internal");rxInternal=localStorage.getItem("recexport_internal")==="1";}catch(e){}
+if(location.hostname==="tkys.github.io"&&!rxInternal){
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init("phc_p8m9f9URBUSN4o8KaTNzcWPZiKMtaMDyWp2FADNYTU3L",{api_host:"https://us.i.posthog.com",persistence:"memory",person_profiles:"identified_only",autocapture:false,disable_session_recording:true,capture_pageview:true,capture_pageleave:true});
+posthog.register({site:"recexport-lp",site_lang:"ja",site_page:"home"});
+document.addEventListener("click",function(e){var a=e.target.closest("a.badge");if(a)posthog.capture("lp.app_store_clicked",{position:a.dataset.pos||""});});
+}
+</script>
 </body>
 </html>
